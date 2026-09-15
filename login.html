@@ -1,0 +1,51 @@
+<!-- Form login admin. Submit -> proses_login.php -->
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip Gaji Karyawan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login Admin Slip Gaji</h1>
+        <p>Silakan login untuk mengelola data slip gaji karyawan.</p>
+
+        <form method="post" action="proses_login.php">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">Password</label>
+            <!-- .password-wrap: biar tombol mata nempel di dalam kotak input (lihat style.css) -->
+            <div class="password-wrap">
+                <input type="password" id="password" name="password">
+                <button type="button" class="btn-toggle-password" onclick="toggleLihatPassword()">Lihat</button>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p style="text-align:center; margin-top: 12px;">
+            <a href="lupa_password.php">Lupa Kata Sandi?</a>
+        </p>
+    </div>
+
+    <script>
+        function toggleLihatPassword() {
+            const input = document.getElementById('password');
+            const tombol = document.querySelector('.btn-toggle-password');
+
+            // Trik "show password": cuma ganti tipe input antara password <-> text
+            if (input.type === 'password') {
+                input.type = 'text';
+                tombol.textContent = 'Sembunyikan';
+            } else {
+                input.type = 'password';
+                tombol.textContent = 'Lihat';
+            }
+        }
+    </script>
+</body>
